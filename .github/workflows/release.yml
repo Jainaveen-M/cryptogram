@@ -21,6 +21,8 @@ jobs:
         run: flutter build apk
       - name: Push to Releases
         uses: ncipollo/release-action@main
+        name: Upload Android Release
+        uses: actions/upload-artifact@v2
         with:
-          artifacts: "build/app/outputs/apk/debug/*"
-          tag: v1.0.${{ github.run_number }}
+          name: android-release
+          path: build/app/outputs/bundle/release/app-release.apk
