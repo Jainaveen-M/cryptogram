@@ -1,0 +1,21 @@
+on:
+  push:
+    branches: ["master","main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses : actions/checkout@v3
+      - uses: actions/setup-javaj@v3
+        with:
+          distribution: 'zulu'
+          java-version: 12
+      - uses: subositio/flutter-action@v2
+        with:
+          flutter-version: "3.19.6"
+          channel : 'stable'
+      - name: Get Dependecies
+        run: flutter pub get
+      - name: Start release build
+        run: flutter buil apk
