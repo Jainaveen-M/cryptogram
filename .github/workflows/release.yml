@@ -18,4 +18,4 @@ jobs:
       - name: Get Dependecies
         run: flutter pub get
       - name: Start release build
-        run: flutter buil apk
+        run: flutter build apk
